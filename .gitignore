@@ -1,0 +1,12 @@
+# User-Specific Solution Files
+*.suo
+
+# User-Specific Project Files
+*.csproj.user
+
+# Project Build Directories - Binary Files
+bin/
+
+# Project Build Directories - Object Files
+obj/
+

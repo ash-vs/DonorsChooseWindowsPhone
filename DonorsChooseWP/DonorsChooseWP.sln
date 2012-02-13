@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonorsChoose.WindowsPhone", "DonorsChoose.WindowsPhone\DonorsChoose.WindowsPhone.csproj", "{677CAE9D-823A-4CE9-8F20-102B201DC3CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MvvmLight", "MvvmLight", "{667F794C-0F33-45A7-B169-4798A145D25E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GalaSoft.MvvmLight (WP71)", "MvvmLight\mvvmlight_version4_beta1_7083e76f9123\GalaSoft.MvvmLight\GalaSoft.MvvmLight (WP71)\GalaSoft.MvvmLight (WP71).csproj", "{278602AC-0053-4EA4-BE56-C2F51C381F2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GalaSoft.MvvmLight.Extras (WP71)", "MvvmLight\mvvmlight_version4_beta1_7083e76f9123\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (WP71)\GalaSoft.MvvmLight.Extras (WP71).csproj", "{7B6403F8-D179-4EDE-B23F-2D3F87869543}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonorsChoose.WindowsPhone.Services", "DonorsChoose.WindowsPhone.Services\DonorsChoose.WindowsPhone.Services.csproj", "{C5636C95-0A0A-4BF7-A8AB-2490FC262559}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{677CAE9D-823A-4CE9-8F20-102B201DC3CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{677CAE9D-823A-4CE9-8F20-102B201DC3CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{677CAE9D-823A-4CE9-8F20-102B201DC3CE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{677CAE9D-823A-4CE9-8F20-102B201DC3CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{677CAE9D-823A-4CE9-8F20-102B201DC3CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{677CAE9D-823A-4CE9-8F20-102B201DC3CE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{278602AC-0053-4EA4-BE56-C2F51C381F2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{278602AC-0053-4EA4-BE56-C2F51C381F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{278602AC-0053-4EA4-BE56-C2F51C381F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{278602AC-0053-4EA4-BE56-C2F51C381F2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B6403F8-D179-4EDE-B23F-2D3F87869543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B6403F8-D179-4EDE-B23F-2D3F87869543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B6403F8-D179-4EDE-B23F-2D3F87869543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B6403F8-D179-4EDE-B23F-2D3F87869543}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5636C95-0A0A-4BF7-A8AB-2490FC262559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5636C95-0A0A-4BF7-A8AB-2490FC262559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5636C95-0A0A-4BF7-A8AB-2490FC262559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5636C95-0A0A-4BF7-A8AB-2490FC262559}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{278602AC-0053-4EA4-BE56-C2F51C381F2D} = {667F794C-0F33-45A7-B169-4798A145D25E}
+		{7B6403F8-D179-4EDE-B23F-2D3F87869543} = {667F794C-0F33-45A7-B169-4798A145D25E}
+	EndGlobalSection
+EndGlobal
