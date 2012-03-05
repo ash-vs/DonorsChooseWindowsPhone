@@ -21,7 +21,15 @@
             <!--Panorama item one-->
             <controls:PanoramaItem Header="item1">
                 <Grid>
-                    <ListBox Margin="12 12 12 24"
+                    <Button Content="Navigate to Page 2"
+                            Height="72"
+                            HorizontalAlignment="Left"
+                            Margin="83 82 0 0"
+                            Name="buttonNavigate"
+                            VerticalAlignment="Top"
+                            Width="281"
+                            Click="buttonNavigate_Click"/>
+                    <!--<ListBox Margin="12 12 12 24"
                              ItemsSource="{Binding Projects}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
@@ -29,7 +37,7 @@
                                            Text="{Binding TestData}"/>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
-                    </ListBox>              
+                    </ListBox>-->              
                 </Grid>
             </controls:PanoramaItem>
 
