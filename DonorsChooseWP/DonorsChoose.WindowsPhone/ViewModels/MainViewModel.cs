@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight;
-using DonorsChoose.WindowsPhone.Services;
-using DonorsChoose.WindowsPhone.Services.Models;
+using DonorsChoose.WindowsPhone.ApplicationServices;
+using DonorsChoose.WindowsPhone.Models;
+using DonorsChoose.WindowsPhone.Services.Network;
+using DonorsChoose.WindowsPhone.Services.Storage;
 
 
 namespace DonorsChoose.WindowsPhone.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+        private IDonorsChooseApiService _donorsChooseApiService;
+        private ILocalDataService _localDataService;
         private INavigationService _navigationService;
 
 
@@ -41,16 +45,19 @@ namespace DonorsChoose.WindowsPhone.ViewModels
 
         #endregion // Public Properties
 
-
-        public MainViewModel(INavigationService navigationService)
+        
+        public MainViewModel(IDonorsChooseApiService donorsChooseApiService,
+            ILocalDataService localDataService, INavigationService navigationService)
         {
+            _donorsChooseApiService = donorsChooseApiService;
+            _localDataService = localDataService;
             _navigationService = navigationService;
         }
 
 
         internal void LoadProjectList()
         {
-            Project.LoadProjects(loadProjectListCallback);
+            _donorsChooseApiService.GetProjects("Kindle", loadProjectListCallback);
         }
 
 
@@ -60,7 +67,6 @@ namespace DonorsChoose.WindowsPhone.ViewModels
             {
                 throw new NotImplementedException();
             }
-
 
             Projects = projects;
         }

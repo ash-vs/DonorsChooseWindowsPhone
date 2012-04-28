@@ -9,7 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GalaSoft.MvvmLight (WP71)",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GalaSoft.MvvmLight.Extras (WP71)", "MvvmLight\mvvmlight_version4_beta1_7083e76f9123\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (WP71)\GalaSoft.MvvmLight.Extras (WP71).csproj", "{7B6403F8-D179-4EDE-B23F-2D3F87869543}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonorsChoose.WindowsPhone.Services", "DonorsChoose.WindowsPhone.Services\DonorsChoose.WindowsPhone.Services.csproj", "{C5636C95-0A0A-4BF7-A8AB-2490FC262559}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonorsChoose.WindowsPhone.Models", "DonorsChoose.WindowsPhone.Models\DonorsChoose.WindowsPhone.Models.csproj", "{B3ABCB28-E060-4334-A9E4-C1876A2D7566}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonorsChoose.WindowsPhone.Services.Network", "DonorsChoose.WindowsPhone.Services.Network\DonorsChoose.WindowsPhone.Services.Network.csproj", "{3BB90A90-FDAA-40E2-8377-331BE514FF41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonorsChoose.WindowsPhone.Services.Storage", "DonorsChoose.WindowsPhone.Services.Storage\DonorsChoose.WindowsPhone.Services.Storage.csproj", "{006DFA42-C13E-4B9E-BE65-3616AFE93890}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +35,18 @@ Global
 		{7B6403F8-D179-4EDE-B23F-2D3F87869543}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B6403F8-D179-4EDE-B23F-2D3F87869543}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B6403F8-D179-4EDE-B23F-2D3F87869543}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5636C95-0A0A-4BF7-A8AB-2490FC262559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5636C95-0A0A-4BF7-A8AB-2490FC262559}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5636C95-0A0A-4BF7-A8AB-2490FC262559}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5636C95-0A0A-4BF7-A8AB-2490FC262559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3ABCB28-E060-4334-A9E4-C1876A2D7566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3ABCB28-E060-4334-A9E4-C1876A2D7566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3ABCB28-E060-4334-A9E4-C1876A2D7566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3ABCB28-E060-4334-A9E4-C1876A2D7566}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BB90A90-FDAA-40E2-8377-331BE514FF41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB90A90-FDAA-40E2-8377-331BE514FF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB90A90-FDAA-40E2-8377-331BE514FF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB90A90-FDAA-40E2-8377-331BE514FF41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{006DFA42-C13E-4B9E-BE65-3616AFE93890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{006DFA42-C13E-4B9E-BE65-3616AFE93890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{006DFA42-C13E-4B9E-BE65-3616AFE93890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{006DFA42-C13E-4B9E-BE65-3616AFE93890}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

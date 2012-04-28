@@ -66,6 +66,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationServices\INavigationService.cs" />
+    <Compile Include="ApplicationServices\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
@@ -99,6 +101,7 @@
     <Content Include="Images\DonorsChoose-org-ApplicationIcon-62x62.png" />
     <Content Include="Images\DonorsChoose-org-Background-173x173.png" />
     <Content Include="Images\DonorsChoose-org-logo-1899x279.png" />
+    <Content Include="Images\metro-map-panorama-background-962x800.png" />
     <Content Include="SplashScreenImage.jpg" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
@@ -106,9 +109,17 @@
     <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DonorsChoose.WindowsPhone.Services\DonorsChoose.WindowsPhone.Services.csproj">
-      <Project>{C5636C95-0A0A-4BF7-A8AB-2490FC262559}</Project>
-      <Name>DonorsChoose.WindowsPhone.Services</Name>
+    <ProjectReference Include="..\DonorsChoose.WindowsPhone.Models\DonorsChoose.WindowsPhone.Models.csproj">
+      <Project>{B3ABCB28-E060-4334-A9E4-C1876A2D7566}</Project>
+      <Name>DonorsChoose.WindowsPhone.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DonorsChoose.WindowsPhone.Services.Network\DonorsChoose.WindowsPhone.Services.Network.csproj">
+      <Project>{3BB90A90-FDAA-40E2-8377-331BE514FF41}</Project>
+      <Name>DonorsChoose.WindowsPhone.Services.Network</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DonorsChoose.WindowsPhone.Services.Storage\DonorsChoose.WindowsPhone.Services.Storage.csproj">
+      <Project>{006DFA42-C13E-4B9E-BE65-3616AFE93890}</Project>
+      <Name>DonorsChoose.WindowsPhone.Services.Storage</Name>
     </ProjectReference>
     <ProjectReference Include="..\MvvmLight\mvvmlight_version4_beta1_7083e76f9123\GalaSoft.MvvmLight\GalaSoft.MvvmLight %28WP71%29\GalaSoft.MvvmLight %28WP71%29.csproj">
       <Project>{278602AC-0053-4EA4-BE56-C2F51C381F2D}</Project>

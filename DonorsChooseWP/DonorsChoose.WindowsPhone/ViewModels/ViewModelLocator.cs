@@ -1,7 +1,9 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using DonorsChoose.WindowsPhone.Services;
+using DonorsChoose.WindowsPhone.ApplicationServices;
+using DonorsChoose.WindowsPhone.Services.Storage;
+using DonorsChoose.WindowsPhone.Services.Network;
 
 namespace DonorsChoose.WindowsPhone.ViewModels
 {
@@ -71,7 +73,8 @@ namespace DonorsChoose.WindowsPhone.ViewModels
         {
             get
             {
-                return new MainViewModel(NavigationService);
+                return new MainViewModel(DonorsChooseApiService, 
+                    LocalDataService, NavigationService);
             }
         }
 
