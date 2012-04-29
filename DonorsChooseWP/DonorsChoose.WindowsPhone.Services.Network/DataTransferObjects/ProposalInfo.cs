@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DonorsChoose.WindowsPhone.Models
+namespace DonorsChoose.WindowsPhone.Services.Network.DataTransferObjects
 {
-    public class Project
+    public class ProposalInfo
     {
         public int Id { get; set; }
         public string ProposalUrl { get; set; }
@@ -13,9 +13,11 @@ namespace DonorsChoose.WindowsPhone.Models
         public string FulfillmentTrailer { get; set; }
         public double PercentFunded { get; set; }
         public double CostToComplete { get; set; }
+        public MatchingFundInfo MatchingFund { get; set; }
         public double TotalPrice { get; set; }
+        public bool FreeShipping { get; set; }
         public string TeacherName { get; set; }
-        public string GradeLevelName { get; set; }
+        public GradeLevelInfo GradeLevel { get; set; }
         public string PovertyLevel { get; set; }
         public string SchoolName { get; set; }
         public string City { get; set; }
@@ -23,9 +25,10 @@ namespace DonorsChoose.WindowsPhone.Models
         public string State { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
-        public string SubjectName { get; set; }
-        public string ResourceName { get; set; }
+        public ZoneInfo Zone { get; set; }
+        public SubjectInfo Subject { get; set; }
+        public ResourceInfo Resource { get; set; }
         public DateTime ExpirationDate { get; set; }
-        public string FundingStatus { get; set; }        
+        public string FundingStatus { get; set; }
     }
 }

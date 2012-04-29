@@ -66,7 +66,7 @@ namespace DonorsChoose.WindowsPhone.ViewModels
         {
             // Call the web service asynchronously
             ShowProgressBar();
-            _donorsChooseApiService.GetProjects(null, loadMostUrgentProjectsListCallback);
+            _donorsChooseApiService.GetMostUrgentProjects(loadMostUrgentProjectsListCallback);
         }
 
 

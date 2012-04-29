@@ -14,7 +14,7 @@ using DonorsChoose.WindowsPhone.ViewModels;
 
 namespace DonorsChoose.WindowsPhone.Views
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class MainPage : DonorsChoosePageBase
     {
         private MainViewModel ViewModel
         {
@@ -25,8 +25,6 @@ namespace DonorsChoose.WindowsPhone.Views
         public MainPage()
         {
             InitializeComponent();
-
-            ViewModel.InitializeDataContext();
         }
 
     }

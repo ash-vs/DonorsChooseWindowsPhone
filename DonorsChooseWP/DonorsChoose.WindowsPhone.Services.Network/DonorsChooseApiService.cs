@@ -5,6 +5,7 @@ using System.IO;
 using DonorsChoose.WindowsPhone.Models;
 using DonorsChoose.WindowsPhone.Services.Network.DataTransferObjects;
 using DonorsChoose.WindowsPhone.Services.Network.Helpers;
+using GalaSoft.MvvmLight.Threading;
 
 namespace DonorsChoose.WindowsPhone.Services.Network
 {
@@ -38,37 +39,30 @@ namespace DonorsChoose.WindowsPhone.Services.Network
 
         public void GetMostUrgentProjects(Action<List<Project>, Exception> viewModelCallback)
         {
-
-        }
-
-
-        public void GetProjects(string searchTerms, Action<List<Project>, Exception> viewModelCallback)
-        {
             try
             {
                 string requestUrl = string.Format("common/json_feed.html?APIKey={0}",
                         Constants.DonorsChooseApiKey);
                 HttpWebRequest request = createHttpGetRequest(requestUrl);
 
-                var state = new GetProjectsAsyncState
+                var state = new GetMostUrgentProjectsAsyncState
                 {
                     Request = request,
                     ViewModelCallback = viewModelCallback
                 };
 
-                request.BeginGetResponse(getProjectsCallback, state);
+                request.BeginGetResponse(getMostUrgentProjectsCallback, state);
             }
             catch (Exception ex)
             {
-                viewModelCallback(null, ex);
+                DispatcherHelper.CheckBeginInvokeOnUI(() => viewModelCallback(null, ex));
             }
         }
 
-
-        private void getProjectsCallback(IAsyncResult asyncResult)
+        private void getMostUrgentProjectsCallback(IAsyncResult asyncResult)
         {
-            GetProjectsAsyncState asyncState =
-                asyncResult.AsyncState as GetProjectsAsyncState;
+            GetMostUrgentProjectsAsyncState asyncState =
+                asyncResult.AsyncState as GetMostUrgentProjectsAsyncState;
             WebRequest request = asyncState.Request;
             Action<List<Project>, Exception> viewModelCallback = asyncState.ViewModelCallback;
 
@@ -77,7 +71,7 @@ namespace DonorsChoose.WindowsPhone.Services.Network
                 WebResponse response = request.EndGetResponse(asyncResult);
                 List<Project> projects = null;
                 string json = null;
-                
+
                 using (var stream = response.GetResponseStream())
                 {
                     using (var reader = new StreamReader(stream))
@@ -87,12 +81,23 @@ namespace DonorsChoose.WindowsPhone.Services.Network
                 }
 
                 projects = EntityTranslator.TranslateGenericSearchResultsToProjects(json);
-                viewModelCallback(projects, null);
+                DispatcherHelper.CheckBeginInvokeOnUI(() => viewModelCallback(projects, null));
             }
             catch (Exception ex)
             {
-                viewModelCallback(null, ex);
-            }
+                DispatcherHelper.CheckBeginInvokeOnUI(() => viewModelCallback(null, ex));
+            }   
+        }
+
+        public void GetProjects(string searchTerms, Action<List<Project>, Exception> viewModelCallback)
+        {
+            
+        }
+
+
+        private void getProjectsCallback(IAsyncResult asyncResult)
+        {
+            
         }
 
 
@@ -101,6 +106,11 @@ namespace DonorsChoose.WindowsPhone.Services.Network
             public HttpWebRequest Request { get; set; }
         }
 
+
+        private class GetMostUrgentProjectsAsyncState : AsyncStateBase
+        {
+            public Action<List<Project>, Exception> ViewModelCallback { get; set; }
+        }
 
         private class GetProjectsAsyncState : AsyncStateBase
         {

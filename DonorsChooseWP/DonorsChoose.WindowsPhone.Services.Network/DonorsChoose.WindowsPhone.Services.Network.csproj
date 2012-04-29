@@ -53,7 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTransferObjects\GeneralSearchResult.cs" />
-    <Compile Include="DataTransferObjects\Proposal.cs" />
+    <Compile Include="DataTransferObjects\GradeLevelInfo.cs" />
+    <Compile Include="DataTransferObjects\MatchingFundInfo.cs" />
+    <Compile Include="DataTransferObjects\ProposalInfo.cs" />
+    <Compile Include="DataTransferObjects\ResourceInfo.cs" />
+    <Compile Include="DataTransferObjects\SubjectInfo.cs" />
+    <Compile Include="DataTransferObjects\ZoneInfo.cs" />
     <Compile Include="DonorsChooseApiService.cs" />
     <Compile Include="Helpers\EntityTranslator.cs" />
     <Compile Include="Helpers\JsonDeserializer.cs" />
@@ -69,6 +74,10 @@
     <ProjectReference Include="..\DonorsChoose.WindowsPhone.Models\DonorsChoose.WindowsPhone.Models.csproj">
       <Project>{B3ABCB28-E060-4334-A9E4-C1876A2D7566}</Project>
       <Name>DonorsChoose.WindowsPhone.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvvmLight\mvvmlight_version4_beta1_7083e76f9123\GalaSoft.MvvmLight\GalaSoft.MvvmLight %28WP71%29\GalaSoft.MvvmLight %28WP71%29.csproj">
+      <Project>{278602AC-0053-4EA4-BE56-C2F51C381F2D}</Project>
+      <Name>GalaSoft.MvvmLight %28WP71%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />

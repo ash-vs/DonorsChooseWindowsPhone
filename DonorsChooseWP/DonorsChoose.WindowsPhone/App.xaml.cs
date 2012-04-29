@@ -19,6 +19,14 @@ namespace DonorsChoose.WindowsPhone
     public partial class App : Application
     {
         /// <summary>
+        /// Used to provide the application's page base class
+        /// with a mechanism for detecting situations in which
+        /// pages need to be reinstantiated and restored from
+        /// the their persisted page state dictionary
+        /// </summary>
+        public static bool WasTombstoned { get; private set; }
+
+        /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
         /// <returns>The root frame of the Phone Application.</returns>
@@ -44,7 +52,7 @@ namespace DonorsChoose.WindowsPhone
             DispatcherHelper.Initialize();
 
 
-            // Show graphics profiling information while debugging.
+            // Optionally show graphics profiling information while debugging.
             if (System.Diagnostics.Debugger.IsAttached)
             {
                 // Display the current frame rate counters.
@@ -76,6 +84,9 @@ namespace DonorsChoose.WindowsPhone
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
+            // Set the tombstoned flag whenever resuming the app 
+            // from either a Suspended or Tombstoned state
+            WasTombstoned = !e.IsApplicationInstancePreserved;
         }
 
         // Code to execute when the application is deactivated (sent to background)

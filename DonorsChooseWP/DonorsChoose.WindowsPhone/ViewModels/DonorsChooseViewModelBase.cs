@@ -106,13 +106,13 @@ namespace DonorsChoose.WindowsPhone.ViewModels
 
         #region TombStoning Methods
 
-        protected virtual void SaveViewModelState(IDictionary<string, object> state)
+        protected internal virtual void SaveViewModelState(IDictionary<string, object> state)
         {
             // No base class implementation needed, but we won't
             // make this abstract in order to avoid forcing an implementation
         }
 
-        protected virtual void RestoreViewModelState(IDictionary<string, object> state)
+        protected internal virtual void RestoreViewModelState(IDictionary<string, object> state)
         {
             // No base class implementation needed, but we won't
             // make this abstract in order to avoid forcing an implementation
@@ -139,6 +139,10 @@ namespace DonorsChoose.WindowsPhone.ViewModels
         {
             // No base class implementation needed, but we won't
             // make this abstract in order to avoid forcing an implementation
+            //
+            // This method is typically only used if/when we need to allow
+            // users to login/logout of an application and/or maintain
+            // their own individual settings
         }
 
         #endregion // Page Initialization Methods
