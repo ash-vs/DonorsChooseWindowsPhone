@@ -50,11 +50,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ILocalDataService.cs" />
+    <Compile Include="IsolatedStorage\AppCache.cs" />
+    <Compile Include="IsolatedStorage\CacheItem.cs" />
     <Compile Include="LocalDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="IsolatedStorage\" />
+    <ProjectReference Include="..\DonorsChoose.WindowsPhone.Models\DonorsChoose.WindowsPhone.Models.csproj">
+      <Project>{B3ABCB28-E060-4334-A9E4-C1876A2D7566}</Project>
+      <Name>DonorsChoose.WindowsPhone.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

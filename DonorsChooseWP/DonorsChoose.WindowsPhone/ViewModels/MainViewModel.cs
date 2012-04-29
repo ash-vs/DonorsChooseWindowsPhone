@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight;
 using DonorsChoose.WindowsPhone.ApplicationServices;
@@ -6,6 +7,7 @@ using DonorsChoose.WindowsPhone.Models;
 using DonorsChoose.WindowsPhone.Services.Network;
 using DonorsChoose.WindowsPhone.Services.Storage;
 using DonorsChoose.WindowsPhone.Helpers;
+using DonorsChoose.WindowsPhone.Services.Storage.IsolatedStorage;
 
 
 namespace DonorsChoose.WindowsPhone.ViewModels
@@ -81,7 +83,18 @@ namespace DonorsChoose.WindowsPhone.ViewModels
 
         private void loadLastViewedProjectsList()
         {
-            // TBA - Retrieve from storage
+            Dictionary<string, Project> lastViewedProjectsCache = 
+                AppCache.LastViewedProjects.Value;
+            
+            if (lastViewedProjectsCache != null)
+            {
+                // Order the cache by the date each time was viewed
+                var orderedLastViewedProjectsCache = lastViewedProjectsCache.OrderByDescending(kvp => kvp.Value.ExpirationDate);
+
+                // Update the local value from the ordered version of the cache
+                LastViewedProjects = (from projectNameValuePair in orderedLastViewedProjectsCache
+                                      select projectNameValuePair.Value).ToList<Project>();
+            }
         }
 
 
@@ -99,7 +112,9 @@ namespace DonorsChoose.WindowsPhone.ViewModels
 
             if (ex != null)
             {
-                throw new NotImplementedException();
+                System.Windows.MessageBox.Show("Sorry, there was an error accessing the network",
+                    "Network Error", System.Windows.MessageBoxButton.OK);
+                return;
             }
 
             MostUrgentProjects = projects;
@@ -108,8 +123,32 @@ namespace DonorsChoose.WindowsPhone.ViewModels
 
         internal void NavigateToProjectDetailsPage(Project project)
         {
+            updateLastViewedProjectsCache(project);
             Uri projectDetailsPageUri = ViewUriHelper.GetProjectDetailsPageUri(project.Id);
             _navigationService.NavigateTo(projectDetailsPageUri);
+        }
+
+
+        private void updateLastViewedProjectsCache(Project selectedProject)
+        {
+            Dictionary<string, Project> lastViewedProjectsCache = 
+                AppCache.LastViewedProjects.Value;
+            
+            // Lazily create and store the Last Viewed projects cache
+            if (lastViewedProjectsCache == null)
+            {
+                lastViewedProjectsCache = new Dictionary<string, Project>();
+                AppCache.LastViewedProjects.Value = lastViewedProjectsCache;
+            }
+
+            if (lastViewedProjectsCache.ContainsKey(selectedProject.Id.ToString()))
+            {
+                lastViewedProjectsCache[selectedProject.Id.ToString()] = selectedProject;
+            }
+            else
+            {
+                lastViewedProjectsCache.Add(selectedProject.Id.ToString(), selectedProject);
+            }
         }
 
 
