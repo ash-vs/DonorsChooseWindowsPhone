@@ -43,7 +43,101 @@
                    Text="{Binding Path=LocalizedResources.ProjectDetailsPageHeaderTextBlock, Source={StaticResource LocalizedStrings}}"
                    Style="{StaticResource DefaultPageHeaderTextBlockStyle}"/>
 
+        <Grid Grid.Row="1"
+              Margin="24 0 24 24">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
+            <TextBlock Grid.Row="0"
+                       Margin="0 0 0 6"
+                       TextWrapping="Wrap"
+                       FontSize="{StaticResource PhoneFontSizeLarge}"
+                       FontWeight="ExtraBold"
+                       Text="{Binding SelectedProject.Title}"/>
+
+            <Image Grid.Row="1"
+                   Margin="0 6 0 6"
+                   Source="{Binding SelectedProject.ImageUrl}"
+                   HorizontalAlignment="Left"
+                   Height="256"/>
+
+            <TextBlock Grid.Row="2"
+                       Margin="0 6 0 6"
+                       TextWrapping="Wrap"
+                       FontSize="{StaticResource PhoneFontSizeMediumLarge}"
+                       FontWeight="ExtraBold"
+                       Text="{Binding SelectedProject.SchoolName}"/>
+
+            <TextBlock Grid.Row="3"
+                       Margin="0 6 0 6"
+                       TextWrapping="Wrap"
+                       FontSize="{StaticResource PhoneFontSizeMedium}"
+                       Foreground="{StaticResource PhoneSubtleBrush}"
+                       Text="{Binding SelectedProject.TeacherName}"/>
+
+            <Grid Grid.Row="4"
+                        Margin="0 6 0 6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0" 
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Margin="0 6 0 0"
+                           FontSize="{StaticResource PhoneFontSizeMedium}"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource PhoneAccentBrush}"
+                           Text="{Binding SelectedProject.PovertyLevel}"/>
+                
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom">
+                    
+                    <TextBlock HorizontalAlignment="Right"
+                               VerticalAlignment="Bottom"
+                               Margin="0 0 3 0"
+                               FontSize="{StaticResource PhoneFontSizeMedium}"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               Text="Total Need:"/>
+                    
+                    <TextBlock HorizontalAlignment="Right"
+                               VerticalAlignment="Bottom"
+                               Margin="0 0 0 0"
+                               FontSize="{StaticResource PhoneFontSizeMedium}"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               Text="$"/>
+
+                    <TextBlock HorizontalAlignment="Right"
+                               VerticalAlignment="Bottom"
+                               Margin="0 0 0 0"
+                               FontSize="{StaticResource PhoneFontSizeMedium}"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               Text="{Binding SelectedProject.TotalPrice}"/>
+                </StackPanel>
+
+            </Grid>
+            
+            <TextBlock Grid.Row="5"
+                       Margin="0 6 0 6"
+                       TextWrapping="Wrap"
+                       FontSize="{StaticResource PhoneFontSizeMedium}"
+                       Text="{Binding SelectedProject.FulfillmentTrailer}"/>
+
+        </Grid>
+        
     </Grid>
 
 </views:DonorsChoosePageBase>

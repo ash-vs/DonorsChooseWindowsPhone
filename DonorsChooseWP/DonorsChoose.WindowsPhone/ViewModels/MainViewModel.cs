@@ -72,6 +72,7 @@ namespace DonorsChoose.WindowsPhone.ViewModels
             _navigationService = navigationService;
         }
 
+
         protected internal override void InitializeDataContext()
         {
             loadLastViewedProjectsList();

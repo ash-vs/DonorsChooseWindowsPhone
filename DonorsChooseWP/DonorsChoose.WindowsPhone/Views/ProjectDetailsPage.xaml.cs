@@ -10,14 +10,39 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using DonorsChoose.WindowsPhone.Helpers;
+using DonorsChoose.WindowsPhone.ViewModels;
 
 namespace DonorsChoose.WindowsPhone.Views
 {
     public partial class ProjectDetailsPage : DonorsChoosePageBase 
     {
+        public ProjectDetailsViewModel ViewModel
+        {
+            get { return DataContext as ProjectDetailsViewModel; }
+        }
+        
         public ProjectDetailsPage()
         {
             InitializeComponent();
+        }
+
+
+        protected override void ParseQueryStringParameters()
+        {
+            // Retrieve the collection of query string parameters
+            IDictionary<string, string> queryStrings = NavigationContext.QueryString;
+            if (queryStrings != null)
+            {
+                // Try to retreive the Project Id
+                if (queryStrings.ContainsKey(ViewUriHelper.ProjectIdQueryStringParameter))
+                {
+                    ViewModel._projectId = queryStrings[ViewUriHelper.ProjectIdQueryStringParameter];
+                }
+            }
+
+
+            base.ParseQueryStringParameters();
         }
     }
 }
