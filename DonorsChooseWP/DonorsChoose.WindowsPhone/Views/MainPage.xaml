@@ -12,30 +12,25 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="False">
+    Style="{StaticResource PanoramaPageStyle}"
+    DataContext="{Binding Path=Main, Source={StaticResource Locator}}">
 
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot">
-        
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        
-        <TextBlock Grid.Row="0" 
-                   Text="Place logo here"
-                   Foreground="Black"
-                   FontSize="48"/>
-        
-        <controls:Panorama Grid.Row="1" 
-                           Title="my application">
+        <controls:Panorama x:Name="MainPagePanorama">
+            <controls:Panorama.TitleTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=LocalizedResources.MainPagePanoramaTitle, Source={StaticResource LocalizedStrings}}"
+                               Style="{StaticResource DefaultPanoramaPageHeaderTextBlockStyle}"/>
+                </DataTemplate>
+            </controls:Panorama.TitleTemplate>
             <controls:Panorama.Background>
                 <ImageBrush ImageSource="/Images/metro-map-panorama-background-962x800.png"
                             Opacity=".3"/>
             </controls:Panorama.Background>
 
-            <!--Panorama item one-->
-            <controls:PanoramaItem Header="item1">
+            <!--Panorama item one - Most Urgent Projects-->
+            <controls:PanoramaItem Header="{Binding Path=LocalizedResources.MainPageMostUrgentPanoramaItemTitle, Source={StaticResource LocalizedStrings}}">
                 <Grid>
                     <ListBox Margin="12 12 12 24"
                              ItemsSource="{Binding Projects}">
@@ -49,8 +44,8 @@
                 </Grid>
             </controls:PanoramaItem>
 
-            <!--Panorama item two-->
-            <controls:PanoramaItem Header="item2">
+            <!--Panorama item two - Last Viewed Projects-->
+            <controls:PanoramaItem Header="{Binding Path=LocalizedResources.MainPageLastViewedPanoramaItemTitle, Source={StaticResource LocalizedStrings}}">
                 <Grid/>
             </controls:PanoramaItem>
         </controls:Panorama>

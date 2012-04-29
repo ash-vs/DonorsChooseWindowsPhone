@@ -7,7 +7,7 @@ using DonorsChoose.WindowsPhone.Services.Network;
 
 namespace DonorsChoose.WindowsPhone.ViewModels
 {
-    public static class ViewModelLocator
+    public class ViewModelLocator
     {
         static ViewModelLocator()
         {
@@ -17,20 +17,23 @@ namespace DonorsChoose.WindowsPhone.ViewModels
 
         private static void registerServices()
         {
-            //
-            // If there's ever a need to register "mock" services for
-            // design-related purposes, then here's where we'd do it
-            //
-            //if (ViewModelBase.IsInDesignModeStatic)
-            //{
-            //}
-            //else
-            //{
-            //}
+            if (ViewModelBase.IsInDesignModeStatic)
+            {
+                //If there's ever a need to register "mock" services for
+                //design-related purposes, then here's where we'd do it
 
-            SimpleIoc.Default.Register<IDonorsChooseApiService, DonorsChooseApiService>();
-            SimpleIoc.Default.Register<ILocalDataService, LocalDataService>();
-            SimpleIoc.Default.Register<INavigationService, NavigationService>();
+                SimpleIoc.Default.Register<IDonorsChooseApiService, DonorsChooseApiService>();
+                SimpleIoc.Default.Register<ILocalDataService, LocalDataService>();
+                SimpleIoc.Default.Register<INavigationService, NavigationService>();
+
+            }
+            else
+            {
+                SimpleIoc.Default.Register<IDonorsChooseApiService, DonorsChooseApiService>();
+                SimpleIoc.Default.Register<ILocalDataService, LocalDataService>();
+                SimpleIoc.Default.Register<INavigationService, NavigationService>();
+            }
+
         }
 
 

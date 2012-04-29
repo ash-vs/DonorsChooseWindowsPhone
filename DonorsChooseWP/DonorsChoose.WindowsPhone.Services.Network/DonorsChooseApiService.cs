@@ -36,6 +36,12 @@ namespace DonorsChoose.WindowsPhone.Services.Network
         }
 
 
+        public void GetMostUrgentProjects(Action<List<Project>, Exception> viewModelCallback)
+        {
+
+        }
+
+
         public void GetProjects(string searchTerms, Action<List<Project>, Exception> viewModelCallback)
         {
             try

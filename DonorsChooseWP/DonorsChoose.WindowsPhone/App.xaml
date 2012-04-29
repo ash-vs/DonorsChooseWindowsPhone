@@ -3,10 +3,29 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
-    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:localization="clr-namespace:DonorsChoose.WindowsPhone.Resources"
+    xmlns:viewModels="clr-namespace:DonorsChoose.WindowsPhone.ViewModels">
 
     <!--Application Resources-->
     <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--XAML Styles-->
+                <ResourceDictionary Source="Styles/ListBoxStyles.xaml"/>
+                <ResourceDictionary Source="Styles/PageStyles.xaml"/>
+                <ResourceDictionary Source="Styles/TextBlockStyles.xaml"/>
+                
+                <!--Misc System-Wide Static Resources-->
+                <ResourceDictionary>
+                    <!--Used to instantiate ViewModels upon View instantiation-->
+                    <viewModels:ViewModelLocator x:Key="Locator"/>
+                    
+                    <!--Used to localize strings-->
+                    <localization:LocalizedStrings x:Key="LocalizedStrings"/>
+                </ResourceDictionary>               
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

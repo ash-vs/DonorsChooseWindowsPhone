@@ -19,16 +19,14 @@ namespace DonorsChoose.WindowsPhone.Views
         private MainViewModel ViewModel
         {
             get { return DataContext as MainViewModel; }
-            set
-            {
-                DataContext = value;
-            }
         }
 
 
         public MainPage()
         {
             InitializeComponent();
+
+            ViewModel.InitializeDataContext();
         }
 
     }

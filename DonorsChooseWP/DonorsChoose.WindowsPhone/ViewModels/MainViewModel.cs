@@ -9,43 +9,36 @@ using DonorsChoose.WindowsPhone.Services.Storage;
 
 namespace DonorsChoose.WindowsPhone.ViewModels
 {
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : DonorsChooseViewModelBase
     {
-        private IDonorsChooseApiService _donorsChooseApiService;
-        private ILocalDataService _localDataService;
-        private INavigationService _navigationService;
-
-
         #region Public Properties
 
 
-        #region Projects Property
+        #region MostUrgentProjects Property
 
+        public const string MostUrgentProjectsPropertyName = "MostUrgentProjects";
 
-        public const string ProjectsPropertyName = "Projects";
+        private List<Project> _mostUrgentProjects;
 
-        private List<Project> _projects;
-
-        public List<Project> Projects
+        public List<Project> MostUrgentProjects
         {
-            get { return _projects; }
+            get { return _mostUrgentProjects; }
             set
             {
-                if (_projects != value)
+                if (_mostUrgentProjects != value)
                 {
-                    _projects = value;
-                    RaisePropertyChanged(ProjectsPropertyName);
+                    _mostUrgentProjects = value;
+                    RaisePropertyChanged(MostUrgentProjectsPropertyName);
                 }
             }
         }
 
-
-        #endregion // Projects Property
+        #endregion // MostUrgentProjects Property
 
 
         #endregion // Public Properties
 
-        
+
         public MainViewModel(IDonorsChooseApiService donorsChooseApiService,
             ILocalDataService localDataService, INavigationService navigationService)
         {
@@ -54,21 +47,39 @@ namespace DonorsChoose.WindowsPhone.ViewModels
             _navigationService = navigationService;
         }
 
-
-        internal void LoadProjectList()
+        protected internal override void InitializeDataContext()
         {
-            _donorsChooseApiService.GetProjects("Kindle", loadProjectListCallback);
+            loadLastViewedProjectsList();
+            loadMostUrgentProjectsList();
+            
+            base.InitializeDataContext();
         }
 
 
-        private void loadProjectListCallback(List<Project> projects, Exception ex)
+        private void loadLastViewedProjectsList()
         {
+            // TBA - Retrieve from storage
+        }
+
+
+        private void loadMostUrgentProjectsList()
+        {
+            // Call the web service asynchronously
+            ShowProgressBar();
+            _donorsChooseApiService.GetProjects(null, loadMostUrgentProjectsListCallback);
+        }
+
+
+        private void loadMostUrgentProjectsListCallback(List<Project> projects, Exception ex)
+        {
+            HideProgressBar();
+
             if (ex != null)
             {
                 throw new NotImplementedException();
             }
 
-            Projects = projects;
+            MostUrgentProjects = projects;
         }
     }
 }
