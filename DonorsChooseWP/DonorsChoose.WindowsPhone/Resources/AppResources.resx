@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApplicationBarSearchButtonText" xml:space="preserve">
+    <value>search</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Donors Choose</value>
+  </data>
   <data name="MainPageLastViewedPanoramaItemTitle" xml:space="preserve">
     <value>last viewed</value>
   </data>
@@ -128,5 +134,11 @@
   </data>
   <data name="ProgressBarText" xml:space="preserve">
     <value>Loading</value>
+  </data>
+  <data name="ProjectDetailsPageHeaderTextBlock" xml:space="preserve">
+    <value>PROJECT DETAILS</value>
+  </data>
+  <data name="SearchPageHeaderTextBlock" xml:space="preserve">
+    <value>SEARCH PROJECTS</value>
   </data>
 </root>

@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="DonorsChoose.WindowsPhone.Views.ProgressBarControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+             FontFamily="{StaticResource PhoneFontFamilyNormal}"
+             FontSize="{StaticResource PhoneFontSizeNormal}"
+             Foreground="{StaticResource PhoneForegroundBrush}"
+             d:DesignHeight="800" d:DesignWidth="480">
+    
+    <!--Combines a High-Performance Progress Bar from the 
+        Silverlight Toolkit along with an opaque "overlay"
+        that results in a modal user experience during 
+        asynchronous operations. All the items are bound to
+        the same DataContext as the page in which the control
+        is placed (actually, usually just properties from the
+        DonorsChooseViewModelBase class)-->
+    <Grid x:Name="LayoutRoot"
+          Background="{StaticResource PhoneBackgroundBrush}"
+          Opacity=".9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+    
+        <!--"Loading" text-->
+        <TextBlock Grid.Row="0"
+                   Margin="24 24 24 3"
+                   FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                   Foreground="{StaticResource PhoneSubtleBrush}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   TextWrapping="Wrap"
+                   toolkit:TiltEffect.IsTiltEnabled="False"
+                   Text="{Binding ProgressBarText}"/>
+        
+        <!--High-Performance Progress Bar-->
+        <toolkit:PerformanceProgressBar Grid.Row="1"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Top"
+                                        Margin="24 3 24 24"
+                                        IsIndeterminate="{Binding IsProgressBarVisible}"/>
+    </Grid>
+</UserControl>

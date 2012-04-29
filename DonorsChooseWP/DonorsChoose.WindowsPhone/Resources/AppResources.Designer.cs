@@ -61,6 +61,24 @@ namespace DonorsChoose.WindowsPhone.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to search.
+        /// </summary>
+        public static string ApplicationBarSearchButtonText {
+            get {
+                return ResourceManager.GetString("ApplicationBarSearchButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Donors Choose.
+        /// </summary>
+        public static string ApplicationTitle {
+            get {
+                return ResourceManager.GetString("ApplicationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to last viewed.
         /// </summary>
         public static string MainPageLastViewedPanoramaItemTitle {
@@ -93,6 +111,24 @@ namespace DonorsChoose.WindowsPhone.Resources {
         public static string ProgressBarText {
             get {
                 return ResourceManager.GetString("ProgressBarText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PROJECT DETAILS.
+        /// </summary>
+        public static string ProjectDetailsPageHeaderTextBlock {
+            get {
+                return ResourceManager.GetString("ProjectDetailsPageHeaderTextBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SEARCH PROJECTS.
+        /// </summary>
+        public static string SearchPageHeaderTextBlock {
+            get {
+                return ResourceManager.GetString("SearchPageHeaderTextBlock", resourceCulture);
             }
         }
     }

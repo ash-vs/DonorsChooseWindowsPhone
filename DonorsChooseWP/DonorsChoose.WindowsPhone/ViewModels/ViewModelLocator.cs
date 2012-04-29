@@ -81,6 +81,24 @@ namespace DonorsChoose.WindowsPhone.ViewModels
             }
         }
 
+        public static ProjectDetailsViewModel ProjectDetails
+        {
+            get
+            {
+                return new ProjectDetailsViewModel(LocalDataService, 
+                    NavigationService);
+            }
+        }
+
+        public static SearchViewModel Search
+        {
+            get
+            {
+                return new SearchViewModel(DonorsChooseApiService,
+                    LocalDataService, NavigationService);
+            }
+        }
+
 
         #endregion // Public ViewModel Properties
 

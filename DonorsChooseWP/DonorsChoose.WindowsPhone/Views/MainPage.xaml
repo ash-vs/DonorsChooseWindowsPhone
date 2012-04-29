@@ -7,6 +7,7 @@
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:converters="clr-namespace:DonorsChoose.WindowsPhone.Converters"
     xmlns:views="clr-namespace:DonorsChoose.WindowsPhone.Views"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -18,10 +19,50 @@
 
     <views:DonorsChoosePageBase.Resources>
         <!--Converters-->
-        
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
         
         <!--Data Templates-->
-        
+        <DataTemplate x:Key="ProjectOverviewListBoxItemTemplate">
+            <Grid Margin="0 6 0 6">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Row="0"
+                           TextWrapping="Wrap"
+                           FontSize="{StaticResource PhoneFontSizeLarge}"
+                           FontWeight="ExtraBold"
+                           Text="{Binding Path=Title}"/>
+                
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0"
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               FontSize="{StaticResource PhoneFontSizeMedium}"
+                               FontWeight="ExtraBold"
+                               HorizontalAlignment="Left"
+                               Text="{Binding Path=GradeLevelName}"/>
+
+                    <TextBlock Grid.Column="1"
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               FontSize="{StaticResource PhoneFontSizeMedium}"
+                               FontWeight="ExtraBold"
+                               HorizontalAlignment="Right"
+                               Text="{Binding Path=ResourceName}"/>
+                </Grid>
+
+                <TextBlock Grid.Row="2"
+                           TextWrapping="Wrap"
+                           FontSize="{StaticResource PhoneFontSizeMedium}"
+                           Text="{Binding Path=ShortDescription}"/>
+            </Grid>
+        </DataTemplate>
     </views:DonorsChoosePageBase.Resources>
     
     
@@ -36,33 +77,30 @@
             </controls:Panorama.TitleTemplate>
             <controls:Panorama.Background>
                 <ImageBrush ImageSource="/Images/metro-map-panorama-background-962x800.png"
-                            Opacity=".3"/>
+                            Opacity=".1"/>
             </controls:Panorama.Background>
 
             <!--Panorama item one - Most Urgent Projects-->
             <controls:PanoramaItem Header="{Binding Path=LocalizedResources.MainPageMostUrgentPanoramaItemTitle, Source={StaticResource LocalizedStrings}}">
-                <Grid>
-                    <ListBox Margin="12 12 12 24"
-                             ItemsSource="{Binding MostUrgentProjects}">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap"
-                                           Text="{Binding Path=Title}"/>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>              
-                </Grid>
+                <ListBox x:Name="MostUrgentProjectsListBox" 
+                         Margin="12 12 12 24"
+                         ItemsSource="{Binding MostUrgentProjects}"
+                         ItemTemplate="{StaticResource ProjectOverviewListBoxItemTemplate}"
+                         SelectionChanged="MostUrgentProjectsListBox_SelectionChanged"/>
             </controls:PanoramaItem>
 
             <!--Panorama item two - Last Viewed Projects-->
             <controls:PanoramaItem Header="{Binding Path=LocalizedResources.MainPageLastViewedPanoramaItemTitle, Source={StaticResource LocalizedStrings}}">
-                <Grid/>
+                <ListBox x:Name="LastViewedProjectsListBox" 
+                         Margin="12 12 12 24"
+                         ItemsSource="{Binding LastViewedProjects}"
+                         ItemTemplate="{StaticResource ProjectOverviewListBoxItemTemplate}"
+                         SelectionChanged="LastViewedProjectsListBox_SelectionChanged"/>            
             </controls:PanoramaItem>
         </controls:Panorama>
 
-        
+        <!--Progress bar to display during asychronous network operations-->
+        <views:ProgressBarControl Visibility="{Binding IsProgressBarVisible, Converter={StaticResource BoolToVisibility}}"/>
     </Grid>
-
-    <!--Panorama-based applications should not show an ApplicationBar-->
 
 </views:DonorsChoosePageBase>

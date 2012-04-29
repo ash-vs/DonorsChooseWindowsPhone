@@ -5,6 +5,7 @@ using DonorsChoose.WindowsPhone.ApplicationServices;
 using DonorsChoose.WindowsPhone.Models;
 using DonorsChoose.WindowsPhone.Services.Network;
 using DonorsChoose.WindowsPhone.Services.Storage;
+using DonorsChoose.WindowsPhone.Helpers;
 
 
 namespace DonorsChoose.WindowsPhone.ViewModels
@@ -25,7 +26,7 @@ namespace DonorsChoose.WindowsPhone.ViewModels
             get { return _mostUrgentProjects; }
             set
             {
-                if (_mostUrgentProjects != value)
+                if ( value != _mostUrgentProjects)
                 {
                     _mostUrgentProjects = value;
                     RaisePropertyChanged(MostUrgentProjectsPropertyName);
@@ -34,6 +35,28 @@ namespace DonorsChoose.WindowsPhone.ViewModels
         }
 
         #endregion // MostUrgentProjects Property
+
+
+        #region LastViewedProjects Property
+
+        public const string LastViewedProjectsPropertyName = "LastViewedProjects";
+
+        private List<Project> _lastViewedProjects;
+
+        public List<Project> LastViewedProjects
+        {
+            get { return _lastViewedProjects; }
+            set
+            {
+                if (value != _lastViewedProjects)
+                {
+                    _lastViewedProjects = value;
+                    RaisePropertyChanged(LastViewedProjectsPropertyName);
+                }
+            }
+        }
+
+        #endregion // LastViewedProjects Property
 
 
         #endregion // Public Properties
@@ -80,6 +103,20 @@ namespace DonorsChoose.WindowsPhone.ViewModels
             }
 
             MostUrgentProjects = projects;
+        }
+
+
+        internal void NavigateToProjectDetailsPage(Project project)
+        {
+            Uri projectDetailsPageUri = ViewUriHelper.GetProjectDetailsPageUri(project.Id);
+            _navigationService.NavigateTo(projectDetailsPageUri);
+        }
+
+
+        internal void NavigateToSearchPage()
+        {
+            Uri searchPageUri = ViewUriHelper.GetSearchPageUri();
+            _navigationService.NavigateTo(searchPageUri);
         }
     }
 }
