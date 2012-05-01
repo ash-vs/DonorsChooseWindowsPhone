@@ -1,38 +1,79 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <!--Simply sets the Foreground color for now-->
+    <Style x:Key="DefaultTextBlockStyle"
+           TargetType="TextBlock">
+
+        <Setter Property="Foreground"
+                Value="Black"/>
+
+    </Style>
+
+
     <!--Creates a standard page header TextBlock that can be used on 
         all pages (except for those containing a Panorama or Pivot)-->
     <Style x:Key="DefaultPageHeaderTextBlockStyle"
            TargetType="TextBlock">
+
         <Setter Property="FontSize"
                 Value="{StaticResource PhoneFontSizeMedium}"/>
+        
         <Setter Property="FontWeight"
                 Value="SemiBold"/>
+
+        <Setter Property="Foreground"
+                Value="Black"/>
+
         <Setter Property="Margin"
                 Value="24 0 24 24"/>
     </Style>
 
-    <!--Creates a standard page header TextBlock for Panorama pages-->
+    <!--Creates a standard page header TextBlock for Panorama pages
     <Style x:Key="DefaultPanoramaPageHeaderTextBlockStyle"
            TargetType="TextBlock">
+        
         <Setter Property="FontSize"
                 Value="64"/>
+
         <Setter Property="FontWeight"
                 Value="ExtraBold"/>
+        
         <Setter Property="Foreground"
-                Value="{StaticResource PhoneAccentBrush}"/>
+                Value="Black"/>
+
         <Setter Property="Margin"
                 Value="12 76 0 0"/>
+    </Style>-->
+
+    <!--Creates a Panorama Item header TextBlock-->
+    <Style x:Key="DefaultPanoramaItemHeaderTextBlockStyle"
+           TargetType="TextBlock">
+
+        <Setter Property="FontSize"
+                Value="72"/>
+
+        <Setter Property="FontWeight"
+                Value="ExtraBold"/>
+
+        <Setter Property="Foreground"
+                Value="Black"/>
     </Style>
-    
+
+
     <!--Creates a standard page header TextBlock for Pivot pages-->
     <Style x:Key="DefaultPivotPageHeaderTextBlockStyle"
            TargetType="TextBlock">
+        
         <Setter Property="FontSize"
                 Value="{StaticResource PhoneFontSizeMedium}"/>
+
         <Setter Property="FontWeight"
                 Value="SemiBold"/>
+
+        <Setter Property="Foreground"
+                Value="Black"/>
+        
         <Setter Property="Margin"
                 Value="24 0 24 0"/>
     </Style>

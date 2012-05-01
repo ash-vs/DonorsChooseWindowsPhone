@@ -5,6 +5,7 @@
         style guidelines for all ListBoxes-->
     <Style x:Key="DefaultListBoxStyle"
            TargetType="ListBox">
+        
         <Setter Property="Margin"
                 Value="24 6 24 6"/>
     </Style>

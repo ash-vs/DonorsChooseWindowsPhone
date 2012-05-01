@@ -10,7 +10,6 @@
     xmlns:views="clr-namespace:DonorsChoose.WindowsPhone.Views"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     Style="{StaticResource DefaultPageStyle}"
@@ -19,20 +18,11 @@
     <views:DonorsChoosePageBase.Resources>
         <!--Converters-->
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
-    </views:DonorsChoosePageBase.Resources>
-    
-    
-    <!--Use the System Tray's Progress Indicator area to display
-        the app title so that we can save screen real estate-->
-    <shell:SystemTray.ProgressIndicator>
-        <shell:ProgressIndicator IsVisible="True"
-                                 IsIndeterminate="False"
-                                 Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"/>
-    </shell:SystemTray.ProgressIndicator>
-    
+    </views:DonorsChoosePageBase.Resources>    
     
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot"
+          Style="{StaticResource DefaultLayoutGridStyle}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -59,7 +49,8 @@
                        TextWrapping="Wrap"
                        FontSize="{StaticResource PhoneFontSizeLarge}"
                        FontWeight="ExtraBold"
-                       Text="{Binding SelectedProject.Title}"/>
+                       Text="{Binding SelectedProject.Title}"
+                       Style="{StaticResource DefaultTextBlockStyle}"/>
 
             <Image Grid.Row="1"
                    Margin="0 6 0 6"
@@ -72,14 +63,16 @@
                        TextWrapping="Wrap"
                        FontSize="{StaticResource PhoneFontSizeMediumLarge}"
                        FontWeight="ExtraBold"
-                       Text="{Binding SelectedProject.SchoolName}"/>
+                       Text="{Binding SelectedProject.SchoolName}"
+                       Style="{StaticResource DefaultTextBlockStyle}"/>
 
             <TextBlock Grid.Row="3"
                        Margin="0 6 0 6"
                        TextWrapping="Wrap"
                        FontSize="{StaticResource PhoneFontSizeMedium}"
                        Foreground="{StaticResource PhoneSubtleBrush}"
-                       Text="{Binding SelectedProject.TeacherName}"/>
+                       Text="{Binding SelectedProject.TeacherName}"
+                       Style="{StaticResource DefaultTextBlockStyle}"/>
 
             <Grid Grid.Row="4"
                         Margin="0 6 0 6">
@@ -134,7 +127,8 @@
                        Margin="0 6 0 6"
                        TextWrapping="Wrap"
                        FontSize="{StaticResource PhoneFontSizeMedium}"
-                       Text="{Binding SelectedProject.FulfillmentTrailer}"/>
+                       Text="{Binding SelectedProject.FulfillmentTrailer}"
+                       Style="{StaticResource DefaultTextBlockStyle}"/>
 
         </Grid>
         

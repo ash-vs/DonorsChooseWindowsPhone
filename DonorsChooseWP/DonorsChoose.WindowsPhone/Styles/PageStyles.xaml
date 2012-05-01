@@ -13,6 +13,10 @@
         <Setter Property="shell:SystemTray.IsVisible"
                 Value="False"/>
         
+        <!--Set the default Foreground color-->
+        <Setter Property="Foreground"
+                Value="Black"/>
+
         <!--Enable element-level tilt animations-->
         <Setter Property="toolkit:TiltEffect.IsTiltEnabled"
                 Value="True"/>
@@ -57,6 +61,25 @@
         <!--Show the system tray-->
         <Setter Property="shell:SystemTray.IsVisible"
                 Value="True"/>
+        
+        <Setter Property="shell:SystemTray.BackgroundColor"
+                Value="White"/>
+
+        <Setter Property="shell:SystemTray.ForegroundColor"
+                Value="Black"/>
+
+        <Setter Property="shell:SystemTray.ProgressIndicator">
+            <Setter.Value>
+                <shell:ProgressIndicator IsVisible="True"
+                                         IsIndeterminate="False"
+                                         Text="DonorsChoose.org for Windows Phone"/>
+            </Setter.Value>
+        </Setter>
+
+
+        <!--Set the default Foreground color-->
+        <Setter Property="Foreground"
+                Value="Black"/>
 
         <!--Enable element-level tilt animations-->
         <Setter Property="toolkit:TiltEffect.IsTiltEnabled"

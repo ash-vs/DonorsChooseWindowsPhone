@@ -12,6 +12,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <!--XAML Styles-->
+                <ResourceDictionary Source="Styles/GridStyles.xaml"/>
                 <ResourceDictionary Source="Styles/ListBoxStyles.xaml"/>
                 <ResourceDictionary Source="Styles/PageStyles.xaml"/>
                 <ResourceDictionary Source="Styles/TextBlockStyles.xaml"/>
@@ -23,7 +24,8 @@
                     
                     <!--Used to localize strings-->
                     <localization:LocalizedStrings x:Key="LocalizedStrings"/>
-                </ResourceDictionary>               
+                </ResourceDictionary>
+                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

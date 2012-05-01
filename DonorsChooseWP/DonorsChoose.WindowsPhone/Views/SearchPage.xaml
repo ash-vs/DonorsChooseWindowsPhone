@@ -10,7 +10,6 @@
     xmlns:views="clr-namespace:DonorsChoose.WindowsPhone.Views"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     Style="{StaticResource DefaultPageStyle}"
@@ -21,18 +20,9 @@
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
     </views:DonorsChoosePageBase.Resources>
 
-    
-    <!--Use the System Tray's Progress Indicator area to display
-        the app title so that we can save screen real estate-->
-    <shell:SystemTray.ProgressIndicator>
-        <shell:ProgressIndicator IsVisible="True"
-                                 IsIndeterminate="False"
-                                 Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"/>
-    </shell:SystemTray.ProgressIndicator>
-
-
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot"
+          Style="{StaticResource DefaultLayoutGridStyle}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
