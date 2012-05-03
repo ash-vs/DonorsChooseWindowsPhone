@@ -10,6 +10,16 @@
 
     </Style>
 
+    <!--Simply sets the Foreground color for now-->
+    <Style x:Key="DefaultPanoramaTextBlockStyle"
+           TargetType="TextBlock">
+
+        <Setter Property="Foreground"
+                Value="White"/>
+
+    </Style>
+
+
 
     <!--Creates a standard page header TextBlock that can be used on 
         all pages (except for those containing a Panorama or Pivot)-->
@@ -57,7 +67,7 @@
                 Value="ExtraBold"/>
 
         <Setter Property="Foreground"
-                Value="Black"/>
+                Value="White"/>
     </Style>
 
 

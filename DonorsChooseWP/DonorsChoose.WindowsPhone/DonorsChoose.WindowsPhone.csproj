@@ -141,10 +141,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\ApplicationBar\appbar.feature.search.rest.png" />
+    <Content Include="Images\DonorsChoose-org-Panorama-Background-962x800.png" />
+    <Content Include="Images\DonorsChoose-Panorama-Logo-480x100.png" />
     <Content Include="Images\DonorsChoose-org-ApplicationIcon-62x62.png" />
     <Content Include="Images\DonorsChoose-org-Background-173x173.png" />
     <Content Include="Images\DonorsChoose-org-logo-1899x279.png" />
-    <Content Include="Images\metro-map-panorama-background-962x800.png" />
     <Content Include="SplashScreenImage.jpg" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
